@@ -184,26 +184,26 @@ figcaption {
 }
 
 body {
-  background-color: #000 !important;
+  background-color: #00114373 !important;
   color: #fff !important;
 }
 
 /* Hero section background */
 .hero,
 .hero .hero-body {
-  background-color: #000 !important;
+  background-color: #00114373 !important;
   color: #fff !important;
 }
 
 /* All content sections */
 .section {
-  background-color: #000 !important;
+  background-color: #00114373 !important;
   color: #fff !important;
 }
 
 /* Footer */
 .footer {
-  background-color: #000 !important;
+  background-color: #00114373 !important;
   color: #fff !important;
 }
 
