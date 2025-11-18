@@ -229,3 +229,39 @@ figcaption {
 html, body {
   background-color: #16203b !important;
 }
+
+html, body {
+  background-color: #16203b !important;
+  color: #fff !important;
+  font-family: "Times New Roman", Times, serif !important;
+}
+
+/* Layout elements */
+.hero,
+.section,
+.footer,
+.container,
+.hero-body,
+.columns,
+.column,
+.content,
+.box {
+  background-color: #16203b !important;
+  color: #fff !important;
+}
+
+/* Remove Bulma white backgrounds everywhere */
+.content *,
+.section *,
+.hero *,
+.container *,
+.columns *,
+.column * {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+/* Captions */
+figcaption {
+  color: #ccc !important;
+}
