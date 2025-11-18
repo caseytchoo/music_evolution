@@ -225,3 +225,7 @@ figcaption {
 .footer .icon-link {
   color: #fff !important;
 }
+
+html, body {
+  background-color: #00114373 !important;
+}
