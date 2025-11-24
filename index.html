@@ -1,310 +1,220 @@
-T<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
-  <meta name="keywords" content="template, sample, html">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>A Fancy Project</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Music Evolution Analysis — Minjun Park</title>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+  <style>
+    /* Global Typography */
+    * { font-family: "Times New Roman", serif !important; letter-spacing: 0.4px; }
+    html, body {
+      background-color: #16203b !important;
+      color: #e8e8e8 !important;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
+        url('./static/images/BG.png') !important;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+    /* Larger, more readable text — reduced 20% */
+    p, li, figcaption, .content {
+      font-size: 1.08rem !important;   /* was 1.35rem */
+      line-height: 1.52 !important;     /* was 1.9 */
+    }
+    figcaption {
+      font-size: 0.92rem !important;    /* was 1.15rem */
+      color: #cccccc !important;
+      font-style: italic;
+      margin-top: 12.8px !important;    /* was 16px */
+    }
+    /* Headings — reduced 20% */
+    .title { color: #ffffff !important; text-shadow: 0 0 12px rgba(255,255,255,0.15); }
+    h1.title { font-size: 3.04rem; margin-bottom: 0.4rem; }        /* was 3.8rem / 0.5rem */
+    h2.title.is-3 { font-size: 1.92rem; margin-bottom: 1.2rem; }   /* was 2.4rem / 1.5rem */
+    /* Divider */
+    .divider {
+      position: relative; width: 100%; text-align: center; margin: 4rem 0; /* was 5rem */
+    }
+    .divider .diamond {
+      font-size: 2.24rem; color: #ffffff;                         /* was 2.8rem */
+      text-shadow: 0 0 12px rgba(255,255,255,0.4), 0 0 30px rgba(255,255,255,0.2);
+    }
+    .divider:before,
+    .divider:after {
+      content: ""; position: absolute; top: 50%; width: 42%; height: 1.2px; /* was 1.5px */
+      background: linear-gradient(to right, transparent, #6d89ff80);
+    }
+    .divider:before { left: 0; }
+    .divider:after { right: 0; background: linear-gradient(to left, transparent, #6d89ff80); }
+    /* Images: 60% size + glass effect */
+    figure img {
+      border-radius: 12.8px;           /* was 16px */
+      padding: 8px;                    /* was 10px */
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 9.6px 32px rgba(0,0,0,0.6); /* was 0 12px 40px */
+      transition: transform 0.35s ease;
+      width: 60% !important;
+      height: auto !important;
+      max-width: none !important;
+    }
+    figure img:hover { transform: scale(1.15); }
+    /* Fade-in animation */
+    .section, figure, .content {
+      opacity: 0;
+      animation: fadeIn 1.4s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Links */
+    a { color: #80bfff; transition: 0.3s; }
+    a:hover { color: #d0e8ff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    /* Footer */
+    .footer {
+      background: #0d1325 !important;
+      color: #b0b0b0 !important;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 3.2rem 1.2rem;         /* was 4rem 1.5rem */
+      margin-top: 4.8rem;             /* was 6rem */
+      font-size: 0.88rem;             /* was 1.1rem */
+    }
+    /* Other minor text adjustments */
+    .subtitle.is-4 { font-size: 1.28rem !important; }     <!-- reduced from implicit ~1.6rem -->
+    .is-size-5 { font-size: 1.2rem !important; }          <!-- was 1.5rem -->
+  </style>
 </head>
-<body style="background-color:#16203B">
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
+<body>
+  <section class="section">
+    <div class="container has-text-centered">
+      <h1 class="title">Music</h1>
+      <p class="subtitle is-4">Evolution of Loudness & Emotions (1950–2019)</p>
+      <p class="is-size-5" style="margin-top: 1.2rem; font-size: 1.2rem;">
+        Minjun Park<sup>1</sup> • Minjun Park<sup>1</sup><br>
+        <sup>1</sup>George Mason University Korea
+      </p>
+    </div>
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">Music's Loudness Over The Years</h2>
+      <p class="has-text-justified">
+        As technology and social moods change, so does the loudness of the music we listen to. We examined how music volume has evolved over the decades, speculated on the underlying reasons, and explored its relationships with acousticness and instrumentalness.
+      </p>
+      <figure class="has-text-centered">
+        <img src="./static/images/ONE.png" alt="Stacked bar plot of loudness over years">
+        <figcaption>Figure 4. Stacked bar plot showing music loudness trends over the years.</figcaption>
+      </figure>
+      <p class="has-text-justified">
+        Music loudness rapidly increased starting in the 1990s—likely due to the rise of electronic music and digital mastering standards that reduced dynamic range in the “Loudness War.”
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/THREE.png" alt="Acousticness vs Loudness">
+            <figcaption>Figure 5. Acousticness and Loudness correlation (R² = 0.29).</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            Loudness and acousticness show a moderate negative correlation, suggesting the shift toward electronic production reduced acoustic elements while increasing overall volume.
+          </p>
+        </div>
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/TWO.png" alt="Instrumentalness vs Loudness">
+            <figcaption>Figure 6. Instrumentalness and Loudness correlation.</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            Instrumentalness shows almost no correlation with loudness—vocal presence does not drive perceived volume.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">Music and Emotions</h2>
+      <p class="has-text-justified">
+        Emotions are at the heart of music. This section explores how happiness, sadness, violence, and romanticism in songs have evolved over seven decades and their relationship with loudness.
+      </p>
+      <figure class="has-text-centered">
+        <img src="./static/images/heatmap.png" alt="Emotion heatmap">
+        <figcaption>Figure 7. Heatmap of emotional content over time (lighter = lower, darker red = higher).</figcaption>
+      </figure>
+      <p class="has-text-justified">
+        Happiness remains the dominant emotion across all decades. Sadness and romanticism declined, while violence slightly increased. Happiness peaked in the 1960s–80s before gradually decreasing.
+      </p>
+      <figure class="has-text-centered">
+        <img src="./static/images/happiness trend.png" alt="Happiness by genre">
+        <figcaption>Figure 8. Happiness trend (1950s–2010s) across seven major genres.</figcaption>
+      </figure>
+      <p class="has-text-justified">
+        Reggae and hip-hop consistently convey the highest happiness, while jazz and rock remain the least happy. All genres show a decline in happiness from the 1950s to the 2010s.
+      </p>
+    </div>
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Loudness vs Happiness & Sadness</h2>
       <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="color: white;">HOW MUSIC’S SONIC, GENRES AND EMOTIONAL
- QUALITIES HAVE CHANGED OVER TIME</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block" style="color: white;">
-              Casey Tchoo<sup>1</sup>, 
-            </span>
-            <span class="author-block" style="color: white;">
-              Minjun Park<sup>1</sup>and
-            </span>
-            <span class="author-block" style="color: white;">
-              Alexander Queguiner<sup>1</sup>, 
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block" style="color: white;"><sup>1</sup>George Mason University Korea</span>
-          </div>
-
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/LoudnessHappiness.png" alt="Loudness vs Happiness KDE">
+            <figcaption>Loudness × Happiness (darker = higher density)</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            High-density regions cluster at loudness 0.6–0.8 and happiness 0.5–0.8 → louder music tends to feel happier.
+          </p>
+        </div>
+        <div class="column is-half">
+          <figure class="has-text-centered">
+            <img src="./static/images/LoudnessSadness.png" alt="Loudness vs Sadness KDE">
+            <figcaption>Loudness × Sadness (darker = higher density)</figcaption>
+          </figure>
+          <p class="has-text-justified">
+            Loud music shows very weak association with sadness (most dense at sadness ≈ 0–0.2).
+          </p>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3" style="color: white;">Abstract</h2>
-        <div class="content has-text-justified is-size-5" style="color: white;">
-          <p> Music evolves alongside culture, technology, and emotion. Over recent decades, production
- methods and genre preferences have changed dramatically, shaping how songs sound and feel. This
- research examines how genre dominance, valence, and loudness in popular music have evolved
- over time, revealing patterns that show how technology and culture have reshaped the modern
- soundscape. The Music Dataset (1950–2019) from Kaggle was used, containing approximately 28,000 songs
- described by 31 musical and lyrical variables. Each record includes information such as artist, track
- title, genre, and features like loudness, energy, danceability, valence, and acousticness. Data
- cleaning, processing, and visualization were performed in Python using Pandas for analysis and
- Matplotlib for visualization.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered">A Catchy Title for the First Section</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt lectus quis libero interdum, non facilisis sapien aliquet. Sed sit amet ex hendrerit, dignissim purus sit amet, blandit est. Integer nec mauris at dolor egestas volutpat. Quisque efficitur metus vitae dolor fermentum, quis varius neque consectetur.
-      </p>
-    <figure class="image has-text-centered">
-        <img src="./static/images/Template_bar.png"
-       alt="Playfair 1801 chart"
-       class="img-small75"
-       style="display: inline-block; width: 75%; height: auto;">
-      <figcaption class="is-size-6 has-text-grey">
-        Figure 1. Visual representation of the project’s workflow using the template bar.
-      </figcaption>
-    </figure>
-    <div class="content has-text-justified">
-      <p>
-        <font color="white">
-        Curabitur suscipit urna ut felis vulputate, nec dictum orci vehicula. Mauris aliquet, nunc et dignissim tincidunt, urna est tempus lacus, ut suscipit ex tellus a ipsum. Donec pretium tempor justo vitae molestie. Fusce ullamcorper leo id purus sodales, at cursus felis lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-        </font>
-      </p>
-    </div>
-  </div>
-</section>
-
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
   <section class="section">
-  <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered">A Catchy Title for the First Section</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt lectus quis libero interdum, non facilisis sapien aliquet. Sed sit amet ex hendrerit, dignissim purus sit amet, blandit est. Integer nec mauris at dolor egestas volutpat. Quisque efficitur metus vitae dolor fermentum, quis varius neque consectetur.
-      </p>
-    <div class="content has-text-justified">
-      <p>
-        Curabitur suscipit urna ut felis vulputate, nec dictum orci vehicula. Mauris aliquet, nunc et dignissim tincidunt, urna est tempus lacus, ut suscipit ex tellus a ipsum. Donec pretium tempor justo vitae molestie. Fusce ullamcorper leo id purus sodales, at cursus felis lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">Conclusion</h2>
+      <p class="has-text-justified">
+        Over the past seven decades, music has become significantly louder while happiness—despite remaining the dominant emotion—has gradually declined across all genres. The rise of electronic production appears to have simultaneously increased loudness and reduced acousticness. Louder songs today are more likely to evoke happiness than sadness, reflecting broader cultural and technological shifts in music production and consumption.
       </p>
     </div>
-  </div>
-</section>
-  
-
-<section class="section">
-  <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered">Another Catchy Title for the Second Section</h2>
-    <figure class="image has-text-centered">
-      <img src="./static/images/waterfall_example.png" alt="Template bar illustration">
-<figcaption class="is-size-6 has-text-grey">
-  Figure 2. Waterfall chart, which shows the cumulative breakdown of changes (positive and negative) across different categories, illustrating how each step contributes to the final total.  
-</figcaption>
-    </figure>
-
-    <div class="content has-text-justified">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt lectus quis libero interdum, non facilisis sapien aliquet. Sed sit amet ex hendrerit, dignissim purus sit amet, blandit est. Integer nec mauris at dolor egestas volutpat. Quisque efficitur metus vitae dolor fermentum, quis varius neque consectetur. Curabitur suscipit urna ut felis vulputate, nec dictum orci vehicula. Mauris aliquet, nunc et dignissim tincidunt, urna est tempus lacus, ut suscipit ex tellus a ipsum. Donec pretium tempor justo vitae molestie. Fusce ullamcorper leo id purus sodales, at cursus felis lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-      </p>
-    </div>
-  </div>
-</section>
-
-<div class="divider">
-  <span class="diamond">◆</span>
-</div>
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3" style="color: white;">Music and Emotions</h2>
-        <div class="content has-text-justified is-size-5" style="color: white;">
-          <p> The emotional element is an essential part of music as music, and indeed any art form, is designed to evoke specific emotions in the listener/viewer. This section examines how the emotions contained in music have evolved over time. It also explores the relationship between loudness and emotion, as mentioned in the section above.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered" style="color: white;">Heatmap</h2>
-    <div class="content has-text-justified" style="color: white;">
-      <p>
-        How have the four emotions expressed in songs—happiness, sadness, violence, and romantic—changed over time? Which emotion is most prevalent in songs?
-      </p>
-    </div>
-    <figure class="image has-text-centered">
-<div style="text-align: center;">
-  <img src="./static/images/heatmap.png"
-       alt="Playfair 1801 chart"
-       class="img-small75"
-       style="display: inline-block; width: 75%; height: auto;">
-</div>
-<figcaption class="is-size-6 has-text-grey-light">
-  Figure 7. A heatmap showing the emotional value of songs over time. Lighter yellows indicate lower scores, while darker reds indicate higher scores.
-</figcaption>
-
-    </figure>
-
-    <div class="content has-text-justified" style="color: white;">
-      <p>
-        This heatmap shows how happiness, sadness, violence, and romantic feelings, measured on a scale of 0 to 1, changed over time. Sadness and romanticism decreased, while violence increased. Happiness grew from 1960 to 1980, but has been declining since the 1990s. The changes in all emotional categories were not significant. Across all decades, happiness is consistently and overwhelmingly higher than the other emotions.
-      </p>
-    </div>
-  </div>
-</section>
-  
-
-  
-<section class="section">
-  <div class="container is-max-desktop">
-<h2 class="title is-3 has-text-centered" style="color: white;">Happeness trend over seven decades by genre</h2>
-    <div class="content has-text-justified" style="color: white;">
-      <p>
-        Genre is one of the main categories that distinguishes songs. How much happiness do each of the seven major genres (rock, reggae, pop, jazz, hip-hop, country, and blues) convey?
-      </p>
-    </div>
-    <figure class="image has-text-centered">
-<div style="text-align: center;">
-  <img src="./static/images/happiness trend.png"
-       alt="Playfair 1801 chart"
-       class="img-small75"
-       style="display: inline-block; width: 75%; height: auto;">
-</div>
-<figcaption class="is-size-6 has-text-grey-light">
-  Figure 8. A lineplot that shows the happiness trend over the years (1950s-2010s) by genre. Each genre is shown as different colors. 
-</figcaption>
-
-    </figure>
-
-    <div class="content has-text-justified" style="color: white;">
-      <p>
-        This graph shows how happiness changes over time by genre. Happiness is measured on a scale of 0 to 1. Compared to the 1950s, happiness decreased across all genres in the 2010s. Data for reggae and hip-hop first appeared in the 1960s and 1980s, respectively, as these genres were not popular before then. Happiness was highest in reggae and hip-hop, and lowest in jazz and rock.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h3 class="title is-3 has-text-centered has-text-white">
-      Loudness VS Happiness/Sadness
-    </h3>
-
-    <div class="content">
-      <p class="has-text-white">
-        This project explored the variation in loudness of songs in the section above. What interactions exist between loudness and the two main emotions, happiness and sadness? These two graphs below are KDE (Kernel Density Estimation) graphs comparing loudness and happiness/sadness. The darker the color, the more data is clustered together.
-      </p>
-    </div>
-  </div>
-</section>
-</section>
-  
-
-<section class="section">
-<div class="container is-max-desktop">
-  <div class="columns is-centered">
-
-    <!-- Feature A -->
-    <div class="column">
-      <div class="content">
-        <h2 class="title is-3 has-text-centered" style="color: white;">Feature A</h2>
-        <img src="./static/images/LoudnessHappiness.png" alt="Template bar illustration">
-        <p>
-          <font color="white">
-          High-density regions are concentrated in the loudness range of approximately 0.6–0.8 and happiness range of approximately 0.5–0.8, indicating that loud music is associated with greater feelings of happiness.
-          </font>
-        </p>
-        <!-- Optional media/image/video goes here -->
-        <!-- <img src="./static/images/featureA.png" alt="Feature A illustration"> -->
-      </div>
-    </div>
-    <!-- /Feature A -->
-
-    <!-- Feature B -->
-    <div class="column">
-      <div class="content">
-        <h2 class="title is-3 has-text-centered" style="color: white;">Feature B</h2>
-        <img src="./static/images/LoudnessSadness.png" alt="Template bar illustration">
-        <p>
-          <font color="white">
-          High-density regions are concentrated in the loudness range of approximately 0.6–0.8 and the sadness range of approximately 0–0.2. This suggests that loud music is weakly associated with sadness.
-          </font>
-        </p>
-        <!-- Optional media/image/video goes here -->
-        <!-- <img src="./static/images/LoudnessSadness.png" alt="Feature B illustration"> -->
-      </div>
-    </div>
-    <!-- /Feature B -->
-
-  </div>
-</div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Outro</h2>
-    <div class="content">
-      <p>
-        This is the last section. In this part, we bring together all the ideas explored throughout the project, reflecting on what was learned, what worked well, and what challenges emerged. We revisit the core objectives, summarizing how each was addressed, and highlight the most significant insights that have arisen from the work. Moreover, we outline how the outcomes contribute to the broader field, what implications they may have for future research or real-world applications, and why these findings matter. In addition, this section proposes concrete next steps: further experiments, methods refinement, validation on new datasets, collaborative extensions, or deployment scenarios. We also discuss potential limitations, acknowledge open questions, and suggest areas that merit deeper investigation.
-      </p>
-    </div>
-  </div>
-</section>
-
+  </section>
+  <div class="divider"><span class="diamond">◆</span></div>
   <section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">References and Data Sources</h2>
-    <div class="content has-text-justified">
-  <p>  
-    1. Shahane, S. (2021). Music dataset (1950–2019) [Data set]. Kaggle.
- https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019  
-  </p>
-  <p>  
-    2. Serra, J., Corral, Á., Boguñá, M., Haro, M., & Arcos, J. L. (2012). Measuring the evolution of contemporary western popular music. <em>Scientific Reports</em>, 2(1), 521. https://doi.org/10.1038/srep00521 
-  </p>
+    <div class="container content">
+      <h2 class="title is-3 has-text-centered">References & Data Sources</h2>
+      <ol class="has-text-justified">
+        <li>Shahane, S. (2021). Music dataset (1950–2019) [Data set]. Kaggle. <a href="https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019">Link</a></li>
+        <li>Serra, J., et al. (2012). Measuring the evolution of contemporary western popular music. <em>Scientific Reports</em>, 2(1), 521. <a href="https://doi.org/10.1038/srep00521">DOI</a></li>
+      </ol>
     </div>
-  </div>
-</section>
-
-
-<footer class='footer footer-compact'>
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-       This website was created as coursework for <strong>CDS 301 / 501: Scientific Information and Data Visualization (Fall 2025) at George Mason Korea</strong>.
-      </p>
-      <p>
-        This website is licensed under a <a rel="license"
-        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-      </p>
-      <p>
-        Template design is based on the example site available at <a href="https://utkuozbulak.github.io/cds_301_template_website/" target="_blank" rel="noopener">CDS 301 Template Website</a>, which itself uses a layout from the <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener">Nerfies project site</a>.
-      </p>
-    </div>
-  </div>
-</footer>
-
-
+  </section>
+  <footer class="footer has-text-centered">
+    <p>
+      Coursework for <strong>CDS 301 / 501: Scientific Information and Data Visualization (Fall 2025)</strong><br>
+      George Mason University Korea<br><br>
+    </p>
+  </footer>
 </body>
 </html>
