@@ -330,59 +330,36 @@
     observer.observe(el);
   });
 </script>
-
 <script>
-  /* --------------------------------------------
-     Mobile Image Click-to-Expand (신규 기능)
-  -------------------------------------------- */
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
+  const images = document.querySelectorAll("figure img, img");
 
-    const images = document.querySelectorAll("figure img");
-    let expandedImg = null;
-    let overlay = null;
+  images.forEach(img => {
+    img.style.cursor = "zoom-in";
 
-    images.forEach(img => {
-      img.addEventListener("click", function () {
+    img.addEventListener("click", function () {
 
-        // 데스크탑에서는 클릭 확대 금지 (hover 있는 디바이스)
-        if (window.matchMedia("(hover: hover)").matches) return;
+      // 배경 생성
+      const bg = document.createElement("div");
+      bg.classList.add("fullscreen-img-bg");
 
-        // 이미 확대된 이미지 → 클릭하면 닫기
-        if (img.classList.contains("img-expanded")) {
-          img.classList.remove("img-expanded");
-          if (overlay) overlay.remove();
-          overlay = null;
-          expandedImg = null;
-          return;
-        }
+      // 확대 이미지 생성
+      const bigImg = document.createElement("img");
+      bigImg.src = img.src;
+      bigImg.classList.add("fullscreen-img");
 
-        // 다른 이미지가 열려 있으면 닫아주기
-        if (expandedImg) {
-          expandedImg.classList.remove("img-expanded");
-          if (overlay) overlay.remove();
-        }
+      bg.appendChild(bigImg);
+      document.body.appendChild(bg);
 
-        // 어두운 배경 생성
-        overlay = document.createElement("div");
-        overlay.classList.add("img-expanded-bg");
-        document.body.appendChild(overlay);
-
-        // 이미지 확대
-        img.classList.add("img-expanded");
-        expandedImg = img;
-
-        // 배경 터치하면 닫히게
-        overlay.addEventListener("click", () => {
-          img.classList.remove("img-expanded");
-          overlay.remove();
-          overlay = null;
-          expandedImg = null;
-        });
-
+      // 클릭하면 닫힘
+      bg.addEventListener("click", () => {
+        bg.remove();
       });
     });
-
   });
+});
 </script>
+
+
 </body>
 </html>
