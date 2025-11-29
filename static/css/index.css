@@ -187,7 +187,3 @@ a:hover { color: #d0e8ff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
     letter-spacing: 0.25px !important;
   }
 }
-
-figure img {
-  pointer-events: none;
-}
