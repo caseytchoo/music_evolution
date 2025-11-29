@@ -178,3 +178,31 @@ figcaption {
     max-width: 100% !important;
   }
 }
+
+/* 확대된 이미지 스타일 */
+.img-expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) !important;
+  width: 90% !important;
+  max-width: 90% !important;
+  height: auto !important;
+  z-index: 9999;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.7);
+}
+
+/* 배경 전체 어둡게 */
+.img-expanded-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 9998;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  figure img:hover {
+    transform: none !important;
+  }
+}
