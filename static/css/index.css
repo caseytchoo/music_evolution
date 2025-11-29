@@ -311,12 +311,24 @@ footer.footer p {
   text-align: center !important;
 }
 
-/* CONTACT 카드 안 텍스트 강제 중앙정렬 */
-.contact-card,
+/* CONTACT 섹션 전체 가운데 정렬 */
+.contacts-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+/* 카드 내부 텍스트 완전 정중앙 고정 */
+.contact-card {
+  text-align: center !important;
+}
+
+/* 내부 텍스트 요소들 깔끔하게 센터 고정 */
 .contact-card h3,
 .contact-card p,
 .contact-card a {
+  display: block;
   text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
