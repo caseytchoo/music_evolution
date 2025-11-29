@@ -270,3 +270,39 @@ a:hover {
 .section:first-of-type p {
   text-align: center !important;
 }
+
+/* ========================= */
+/*        CONTACTS           */
+/* ========================= */
+
+.contacts-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.contacts-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  width: 260px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.contact-card a {
+  color: #80bfff;
+}
+
+.contact-card a:hover {
+  color: #cce6ff;
+}
