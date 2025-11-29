@@ -3,171 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Music Evolution</title>
-
-  <!-- Bulma CSS -->
+  <title> Music Evolution</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
-
   <style>
-/* ----------------------------------------- */
-/* GLOBAL TYPOGRAPHY + BACKGROUND           */
-/* ----------------------------------------- */
-* { font-family: "Times New Roman", serif !important; letter-spacing: 0.4px; }
+    /* Global Typography */
+    * { font-family: "Times New Roman", serif !important; letter-spacing: 0.4px; }
+    html, body {
+      background-color: #16203b !important;
+      color: #e8e8e8 !important;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
+        url('./static/images/BG.png') !important;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+    p, li, figcaption {
+      font-size: 1.08rem !important;
+      line-height: 1.52 !important;
+    }
+    figcaption {
+      font-size: 0.92rem !important;
+      color: #cccccc !important;
+      font-style: italic;
+      margin-top: 12.8px !important;
+    }
+    .title { color: #ffffff !important; text-shadow: 0 0 12px rgba(255, 255, 255, 0.7); }
+    h1.title { font-size: 3.04rem; margin-bottom: 0.4rem; }
+    h2.title.is-3 { font-size: 1.92rem; margin-bottom: 1.2rem; }
 
-html, body {
-  background-color: #16203b !important;
-  color: #e8e8e8 !important;
-  background-image:
-    linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)),
-    url('./static/images/BG.png') !important;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  min-height: 100vh;
-  line-height: 1.8;
-}
+    .divider {
+      position: relative; width: 100%; text-align: center; margin: 4rem 0;
+    }
+    .divider .diamond {
+      font-size: 2.24rem; color: #ffffff;
+      text-shadow: 0 0 12px rgba(255,255,255,0.4), 0 0 30px rgba(255,255,255,0.2);
+    }
+    .divider:before,
+    .divider:after {
+      content: ""; position: absolute; top: 50%; width: 42%; height: 1.2px;
+      background: linear-gradient(to right, transparent, #6d89ff80);
+    }
+    .divider:before { left: 0; }
+    .divider:after { right: 0; background: linear-gradient(to left, transparent, #6d89ff80); }
 
-/* Text sizes */
-p, li, figcaption {
-  font-size: 1.08rem !important;
-  line-height: 1.52 !important;
-}
-
-figcaption {
-  font-size: 0.92rem !important;
-  color: #cccccc !important;
-  font-style: italic;
-  margin-top: 12px !important;
-}
-
-.title { color: #ffffff !important; text-shadow: 0 0 12px rgba(255,255,255,0.7); }
-h1.title { font-size: 3rem; margin-bottom: 0.4rem; }
-h2.title.is-3 { font-size: 1.9rem; margin-bottom: 1.2rem; }
-
-/* Page container */
-.container {
-  max-width: 960px !important;
-  margin: 0 auto !important;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-/* ----------------------------------------- */
-/* DIVIDER (◆)                               */
-/* ----------------------------------------- */
-.divider {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  margin: 4rem 0;
-}
-.divider .diamond {
-  font-size: 2.2rem;
-  color: #ffffff;
-  text-shadow: 0 0 12px rgba(255,255,255,0.4);
-}
-.divider::before,
-.divider::after {
-  content:"";
-  position:absolute;
-  top:50%;
-  width:42%;
-  height:1px;
-  background: linear-gradient(to right, transparent, #6d89ff80);
-}
-.divider::before { left:0; }
-.divider::after {
-  right:0;
-  background: linear-gradient(to left, transparent, #6d89ff80);
-}
-
-/* ----------------------------------------- */
-/* IMAGE SETTINGS (DESKTOP DEFAULT)          */
-/* ----------------------------------------- */
-
-figure img {
-  border-radius: 12px;
+   
+    figure img {
+  border-radius: 12.8px;
   padding: 8px;
   background: rgba(255,255,255,0.07);
   backdrop-filter: blur(8px);
-  box-shadow: 0 10px 32px rgba(0,0,0,0.6);
+  box-shadow: 0 9.6px 32px rgba(0,0,0,0.6);
   transition: transform 0.35s ease;
-  width: 70%;       /* DESKTOP 기본 크기 */
+  width: 70%;  /* 데스크탑에서는 60% 유지 */
   height: auto;
 }
+    figure img:hover { transform: scale(1.3); }
 
-/* hover 확대 - desktop only */
-@media (hover: hover) and (pointer: fine) {
-  figure img:hover { transform: scale(1.28); }
-}
-
-/* 이미지 wrapper 중앙 배치 */
-.image-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* 이미지 아래 caption 및 paragraph 정렬 */
-.image-wrapper figcaption,
-.image-wrapper + p {
-  width: 70%;
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ----------------------------------------- */
-/* TWO-COLUMN IMAGE CORRECTION (DESKTOP)     */
-/* ----------------------------------------- */
-.columns.is-multiline .column.is-half {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 0.6rem !important;
-  padding-right: 0.6rem !important;
-}
-
-.columns.is-multiline .image-wrapper figure img {
-  width: 75% !important;
-  max-width: 560px !important;
-}
-
-.columns.is-multiline .image-wrapper figcaption,
-.columns.is-multiline .image-wrapper + p {
-  width: 75% !important;
-  max-width: 560px !important;
-}
-
-/* hover enlargement inside 2-column */
-@media (hover: hover) and (pointer: fine) {
-  .columns.is-multiline .column.is-half figure img:hover {
-    transform: scale(1.40) !important;
-    z-index: 30;
-  }
-}
-
-/* Ensure wrapper doesn't clip enlarged image */
-.columns.is-multiline .column.is-half .image-wrapper {
-  overflow: visible !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-/* ----------------------------------------- */
-/* MOBILE OVERRIDES                          */
-/* ----------------------------------------- */
-
+    /* Mobile image fix — overrides desktop */
 @media screen and (max-width: 768px) {
-
-  .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-
-  p, li { line-height: 1.38 !important; }
-
-  /* 모바일 — 모든 이미지 100% */
   figure img {
     width: 100% !important;
     max-width: 100% !important;
@@ -182,373 +79,535 @@ figure img {
   .image-wrapper + p {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 1rem !important;
-    margin: 0 auto !important;
     text-align: center !important;
-  }
-
-  /* 두-컬럼도 강제로 full-width */
-  .columns.is-multiline .column.is-half {
-    width: 100% !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
 
-  .columns.is-multiline .image-wrapper figure img {
+  .container {
     width: 100% !important;
     max-width: 100% !important;
+    padding: 0 !important;
   }
 }
+    
+    /* NEW: Center caption & following paragraph exactly under the image */
+    .image-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .image-wrapper figcaption,
+    .image-wrapper + p {
+      width: 60%;
+      max-width: none;
+      text-align: center !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-/* ----------------------------------------- */
-/* MOBILE CLICK-TO-EXPAND                    */
-/* ----------------------------------------- */
+    .section, figure {
+      opacity: 0;
+      animation: fadeIn 1.4s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    a { color: #80bfff; transition: 0.3s; }
+    a:hover { color: #d0e8ff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+    .footer {
+      background: #0d1325 !important;
+      color: #b0b0b0 !important;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 3.2rem 1.2rem;
+      margin-top: 4.8rem;
+      font-size: 0.88rem;
+    }
+  .container {
+  max-width: 960px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+    }
+    .subtitle.is-4 { font-size: 1.28rem !important; }
+    .is-size-5 { font-size: 1.2rem !important; }
+<style>
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .toc-item {
+    position: relative;
+    display: block;
+    padding: 1.2rem 1.8rem;
+    background: rgba(22, 32, 59, 0.65);
+    border: 1.5px solid rgba(109, 137, 255, 0.25);
+    border-radius: 16px;
+    color: #e8f0ff !important;
+    font-size: 1.18rem;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(109, 137, 255, 0.08);
+  }
 
-.img-expanded {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  width: 90% !important;
-  max-width: 90%;
-  height: auto !important;
-  z-index: 9999;
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  /* Subtle inner glow background on hover */
+  .toc-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(109, 137, 255, 0.15) 0%, 
+      rgba(128, 191, 255, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  .toc-item:hover {
+    transform: translateY(-6px) scale(1.025);
+    border-color: #80bfff;
+    background: rgba(30, 42, 77, 0.85);
+    color: #ffffff !important;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(109, 137, 255, 0.4),
+      inset 0 0 20px rgba(128, 191, 255, 0.15);
+    z-index: 10;
+  }
+
+  .toc-item:hover::before {
+    opacity: 1;
+  }
+
+  .toc-item:hover .toc-number {
+    color: #c0d8ff;
+    text-shadow: 0 0 12px rgba(128, 191, 255, 0.8);
+  }
+
+  .toc-number {
+    color: #80bfff;
+    font-weight: bold;
+    margin-right: 1rem;
+    opacity: 0.95;
+    transition: all 0.4s ease;
+  }
+
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .toc-item {
+    display: block;
+    padding: 1rem 1.6rem;
+    background: #16203b;
+    border: 1.5px solid rgba(109, 137, 255, 0.3);
+    border-radius: 14px;                 /* fully rounded corners */
+    color: #e0e7ff !important;
+    font-size: 1.15rem;
+    text-align: left;
+    transition: all 0.38s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+  }
+  .toc-item:hover {
+    background: rgba(30, 42, 77, 0.7);
+    border-color: #80bfff;
+    transform: translateY(-4px);
+    color: #ffffff !important;
+    box-shadow: 0 12px 30px rgba(109, 137, 255, 0.25);
+    text-shadow: 0 0 10px rgba(128, 191, 255, 0.5);
+  }
+  .toc-number {
+    color: #80bfff;
+    font-weight: bold;
+    margin-right: 0.9rem;
+    opacity: 0.95;
+  }
+html {
+  scroll-behavior: smooth;
 }
+<style>
+  /* Make side-by-side images bigger and properly centered */
+  .columns.is-multiline .column.is-half {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.img-expanded-bg {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 9998;
-}
+  /* For the two-column sections only: make images use almost the full column width */
+  .columns.is-multiline .image-wrapper figure img {
+    width: 75% !important;        /* was 60% → now much larger */
+    max-width: 560px !important;  /* optional: prevent them from getting huge on very wide screens */
+  }
 
-/* 모바일에서는 hover 없애기 */
-@media (hover:none) and (pointer:coarse) {
-  figure img:hover { transform:none !important; }
-}
-
-/* ----------------------------------------- */
-/* FADE-IN EFFECTS                            */
-/* ----------------------------------------- */
+  /* Keep captions and the paragraph after the image the same width as the image */
+  .columns.is-multiline .image-wrapper figcaption,
+  .columns.is-multiline .image-wrapper + p {
+    width: 75% !important;
+    max-width: 560px !important;
+    text-align: center !important;
+  }
+/* Base styles for fade animation */
 .fade-element {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity .9s ease, transform .9s ease;
-}
-.fade-element.visible {
-  opacity: 1; transform: translateY(0);
-}
-.fade-element.hidden {
-  opacity: 0; transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
+              transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: opacity, transform;
 }
 
+.fade-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-element.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Slightly different timing for images so they feel staggered */
+.image-wrapper.fade-element {
+  transition-delay: 0.15s;
+}
+
+/* Optional: make dividers fade in more dramatically */
+.divider.fade-element {
+  transition-duration: 1.2s;
+}
+
+/* 1) 두 이미지 사이 간격 줄이기 (데스크탑용) */
+.columns.is-multiline .column.is-half {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+/* 2) Hover 확대 시 잘리던 문제 해결 */
+.columns.is-multiline .column.is-half .image-wrapper {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 2;
+}
+
+/* 3) Hover 시 실제로 더 크게 보이도록 */
+.columns.is-multiline .column.is-half figure img:hover {
+  transform: scale(1.45) !important;  
+  z-index: 30 !important;
+}
+</style>
+    
   </style>
 </head>
 <body>
-
-<body>
-
-  <!-- Title Section -->
-  <section class="section fade-element">
+  <section class="section">
     <div class="container has-text-centered">
       <h1 class="title">How Music’s Sound and Emotion Have Changed Over Time</h1>
-      <p class="is-size-5" style="margin-top: 1.2rem;">
+      <p class="is-size-5" style="margin-top: 1.2rem; font-size: 1.2rem;">
         Alexander Queguiner, Casey Tchoo, and Minjun Park<br>
         George Mason University Korea
       </p>
     </div>
   </section>
 
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
+  <div class="divider"><span class="diamond">◆</span></div>
 
-  <!-- ABSTRACT -->
-  <section class="section fade-element">
-    <div class="container">
-      <div class="content">
-        <h2 class="title is-3 has-text-centered">Abstract</h2>
-        <p class="has-text-justified">
-          This project investigates how the sonic qualities, emotional tone, and cultural meaning
-          of popular music have evolved from the 1950s to 2019 using a comprehensive Kaggle dataset...
-        </p>
+  
+<section class="section">
+  <div class="container">
+    <div class="content">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <p class="has-text-justified">
+       This project investigates how the sonic qualities, emotional tone, and cultural meaning of popular music have evolved from the 1950s to 2019 using a comprehensive Kaggle dataset of audio and lyrical features. By examining long-term trends in genre dominance, acousticness, loudness, instrumental characteristics, and emotion-related variables, we aim to understand how shifts in technology and cultural taste have shaped musical expression over the past seven decades. Our analysis reveals several consistent patterns: music has grown significantly louder across time, largely coinciding with the rise of digital production and mastering techniques; acousticness has steadily decreased, indicating a move toward more electronic sound design; and the distribution of genres has diversified, with the historical dominance of Rock and Pop giving way to increased representation of Hip Hop, Electronic, and other contemporary styles. In parallel, lyrical emotional signals exhibit notable fluctuations across decades, with happiness gradually declining while darker emotional cues show slight increases. By connecting sonic, cultural, and emotional dimensions, this study offers insight into the evolving landscape of modern music and highlights the extent to which technological innovation and cultural change continue to reshape the affective identity of popular sound.
+  </div>
+  </div>
+</section>
+<!-- TABLE OF CONTENTS --><section class="section">
+<section class="section">
+  <div class="container has-text-centered">
+    <h2 class="title is-3" style="margin-bottom: 2.5rem;">Contents</h2>
+    
+    <div style="max-width: 560px; margin: 0 auto;">
+      <div class="toc-list">
+        <a href="#genre-trends" class="toc-item">
+          <span class="toc-number">1.</span> Genre Trends and Cultural Signals
+        </a>
+        <a href="#loudness" class="toc-item">
+          <span class="toc-number">2.</span> Music's Loudness Over The Years
+        </a>
+        <a href="#emotions" class="toc-item">
+          <span class="toc-number">3.</span> Music and Emotions
+        </a>
+        <a href="#conclusion" class="toc-item">
+          <span class="toc-number">4.</span> Conclusion
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
 
-  <!-- CONTENT TABLE -->
-  <section class="section fade-element">
-    <div class="container has-text-centered">
-      <h2 class="title is-3" style="margin-bottom: 2.5rem;">Contents</h2>
-
-      <div style="max-width:560px; margin:0 auto;">
-        <div class="toc-list">
-          <a href="#genre-trends" class="toc-item"><span class="toc-number">1.</span> Genre Trends and Cultural Signals</a>
-          <a href="#loudness" class="toc-item"><span class="toc-number">2.</span> Music's Loudness Over The Years</a>
-          <a href="#emotions" class="toc-item"><span class="toc-number">3.</span> Music and Emotions</a>
-          <a href="#conclusion" class="toc-item"><span class="toc-number">4.</span> Conclusion</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
-
-  <!-- GENRE TRENDS -->
-  <section id="genre-trends" class="section fade-element">
-    <div class="container content">
+<div class="divider"><span class="diamond">◆</span></div>
+  
+ <section class="section">
+<section class="section" id="genre-trends">
+  <div class="container">
+    <div class="content">
       <h2 class="title is-3 has-text-centered">Genre Trends and Cultural Signals</h2>
-      <p class="has-text-justified">
-        As cultural tastes shift and production technology evolves, music genres change in parallel...
-      </p>
+       <p class="has-text-justified">
+        As cultural tastes shift and production technology evolves, music genres change in parallel. Throughout this project, we examined how patterns of genre dominance moved across decades and what these transitions reveal about listener preferences, cultural trends, and the broader music industry. Our analysis highlights not only which genres rose or declined in popularity over time, but also how these dynamics coincide with meaningful changes in musical aesthetics. By comparing features such as acousticness, loudness, and lyrical emotional tone across genres, we observed that each genre carries distinct sonic and affective signatures that contribute to its cultural identity. Taken together, these findings suggest that the evolution of genre is not simply a reflection of changing fashion, but a response to deeper interactions between technology, consumer expectations, and the expressive goals of artists.
+      <div class="image-wrapper has-text-centered" style="margin-bottom: 2rem;">
+  <figure>
+    <img src="./static/images/web_legend.png" alt="Genre Legend">
+    <figcaption>Legend. Color guide for the seven major music genres used throughout this section.</figcaption> 
+  </figure>
+</div>
 
-      <!-- Single Image -->
-      <div class="image-wrapper fade-element" style="margin-bottom:2rem;">
-        <figure>
-          <img src="./static/images/web_legend.png" alt="Genre Legend">
-          <figcaption>Legend. Colors for seven major music genres.</figcaption>
-        </figure>
-      </div>
-
-      <div class="image-wrapper fade-element">
+      <div class="image-wrapper has-text-centered">
         <figure>
           <img src="./static/images/web_stackedbar.png" alt="Stacked Bar">
-          <figcaption>Figure 1. Stacked bar plot showing how genre shares change across decades.</figcaption>
+          <figcaption class="mb-5">Figure 1. Stacked bar plot showing how genre shares change across decades.</figcaption>
         </figure>
       </div>
-
-      <p class="has-text-justified">
-        This plot shows how the popularity of major genres shifts across decades...
+      <p class="has-text-justified mt-5">
+       This plot shows how the popularity of major genres shifts across decades. Rock and Pop are dominant in the earlier decades, but Hip hop and Electronic music rise significantly in later years. Reggae, Country, and Blues stay smaller but remain consistently present. The chart makes it clear that the music landscape becomes more diverse over time, with newer genres taking a larger share. These changes reflect cultural shifts, new technology, and evolving listener preferences.
       </p>
     </div>
   </section>
 
-  <!-- 3 Image Two-column Section -->
-  <section class="section fade-element">
+  <section class="section">
     <div class="container">
       <div class="columns is-centered is-multiline">
-
-        <div class="column is-half fade-element">
-          <div class="image-wrapper">
+        <div class="column is-half">
+          <div class="image-wrapper has-text-centered">
             <figure>
               <img src="./static/images/web_boxplot.png" alt="Box Plot">
-              <figcaption>Figure 2. Distribution of acousticness across genres.</figcaption>
+              <figcaption class="mb-5">Figure 2. Boxplot showing the distribution of acousticness across music genres.</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified mt-5">This chart compares how acoustic each genre sounds...</p>
+          <p class="has-text-justified mt-5">
+            This chart compares how “acoustic” each genre sounds. Country, Blues, and Jazz show higher acousticness overall, meaning they rely more on natural instruments. Hip hop and Pop are less acoustic, which makes sense because they use more digital production. Rock sits in the middle with both electric and acoustic elements. The spread inside each box shows that some genres are more flexible in style, while others follow a more consistent sound identity.
+          </p>
         </div>
-
-        <div class="column is-half fade-element">
-          <div class="image-wrapper">
+        <div class="column is-half">
+          <div class="image-wrapper has-text-centered">
             <figure>
-              <img src="./static/images/web_horizontalbar.png" alt="Horizontal Bar Plot">
-              <figcaption>Figure 3. Average explicit-content scores across genres.</figcaption>
+              <img src="./static/images/web_horizontalbar.png" alt="Horizonal Bar Plot">
+              <figcaption class="mb-5">Figure 3. Bar plot showing average explicit-content scores across genres.</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified mt-5">Hip hop has the highest explicit-language score...</p>
+          <p class="has-text-justified mt-5">
+           This visualization shows how often different genres use explicit or offensive language. Hip hop has the highest average obscene score, followed by Rock and Pop at lower levels. Jazz, Country, Reggae, and Blues tend to use little to no explicit language. These differences highlight how certain genres focus more on expressive, raw, or confrontational lyrics, while others keep a cleaner or more traditional lyrical style.
+          </p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
+  <div class="divider"><span class="diamond">◆</span></div>
 
-  <!-- LOUDNESS OVER TIME -->
-  <section id="loudness" class="section fade-element">
-    <div class="container content">
-
+<section class="section" id="loudness">
+  <div class="container">
+    <div class="content">
       <h2 class="title is-3 has-text-centered">Music's Loudness Over The Years</h2>
-      <p class="has-text-justified">As technology and social moods change, so does loudness...</p>
-
-      <div class="image-wrapper fade-element">
-        <figure>
-          <img src="./static/images/ONE.png" alt="Loudness Over Time">
-          <figcaption>Figure 4. Loudness trends over the years.</figcaption>
-        </figure>
-      </div>
-
-      <p class="has-text-justified mt-5">
-        Music loudness rapidly increased starting in the 1990s…
-      </p>
-
-    </div>
-  </section>
-
-  <!-- 2 Column Correlation -->
-  <section class="section fade-element">
-    <div class="container">
-      <div class="columns is-centered is-multiline">
-
-        <div class="column is-half fade-element">
-          <div class="image-wrapper">
-            <figure>
-              <img src="./static/images/THREE.png" alt="Acousticness vs Loudness">
-              <figcaption>Figure 5. Acousticness vs Loudness correlation.</figcaption>
-            </figure>
-          </div>
-          <p class="has-text-justified mt-5">Loudness and acousticness show a moderate negative correlation…</p>
-        </div>
-
-        <div class="column is-half fade-element">
-          <div class="image-wrapper">
-            <figure>
-              <img src="./static/images/TWO.png" alt="Instrumentalness vs Loudness">
-              <figcaption>Figure 6. Instrumentalness vs Loudness correlation.</figcaption>
-            </figure>
-          </div>
-          <p class="has-text-justified mt-5">Instrumentalness shows almost no correlation…</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
-
-  <!-- EMOTION HEATMAP -->
-  <section id="emotions" class="section fade-element">
-    <div class="container content">
-
-      <h2 class="title is-3 has-text-centered">Music and Emotions</h2>
-      <p class="has-text-justified">The emotional element is essential to music…</p>
-
-      <div class="image-wrapper fade-element">
-        <figure>
-          <img src="./static/images/heatmap.png" alt="Emotion Heatmap">
-          <figcaption>Figure 7. Heatmap of emotional content over decades.</figcaption>
-        </figure>
-      </div>
-
-      <p class="has-text-justified mt-5">This heatmap shows how happiness, sadness, violence…</p>
-
-      <div class="image-wrapper fade-element" style="margin-top:3rem;">
-        <figure>
-          <img src="./static/images/happiness trend.png" alt="Happiness Trend">
-          <figcaption>Figure 8. Happiness trend across genres.</figcaption>
-        </figure>
-      </div>
-
-      <p class="has-text-justified mt-5">Happiness decreased across all genres…</p>
-
-    </div>
-  </section>
-
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
-
-  <!-- LOUDNESS × EMOTION 2-COLUMN -->
-  <section class="section fade-element">
-    <h2 class="title is-3 has-text-centered">Loudness vs Happiness & Sadness</h2>
-
-    <div class="container">
-      <p class="has-text-justified">These graphs compare loudness with happiness/sadness using KDE…</p>
-
-      <div class="columns is-centered is-multiline">
-
-        <div class="column is-half fade-element">
-          <div class="image-wrapper">
-            <figure>
-              <img src="./static/images/LoudnessHappiness.png" alt="Loudness × Happiness">
-              <figcaption>Figure 9.2. Loudness × Happiness KDE</figcaption>
-            </figure>
-          </div>
-          <p class="has-text-justified mt-5">
-            High-density regions concentrate around loudness 0.6–0.8…
-          </p>
-        </div>
-
-        <div class="column is-half fade-element">
-          <div class="image-wrapper">
-            <figure>
-              <img src="./static/images/LoudnessSadness.png" alt="Loudness × Sadness">
-              <figcaption>Figure 9.1. Loudness × Sadness KDE</figcaption>
-            </figure>
-          </div>
-          <p class="has-text-justified mt-5">
-            High-density regions are located around sadness 0–0.2…
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
-
-  <!-- CONCLUSION -->
-  <section id="conclusion" class="section fade-element">
-    <div class="container content">
-      <h2 class="title is-3 has-text-centered">Conclusion</h2>
 
       <p class="has-text-justified">
-        Across the seven decades examined, the evolution of popular music reflects…
+        As technology and social moods change, so does the loudness of the music we listen to. We examined how music volume has evolved over the decades, speculated on the underlying reasons, and explored its relationships with acousticness and instrumentalness.
       </p>
 
+      <div class="image-wrapper has-text-centered">
+        <figure>
+          <img src="./static/images/ONE.png" alt="Stacked bar plot of loudness over years">
+          <figcaption class="mb-5">Figure 4. Stacked bar plot showing music loudness trends over the years.</figcaption>
+        </figure>
+      </div>
+      <p class="has-text-justified mt-5">
+        Music loudness rapidly increased starting in the 1990s—likely due to the rise of electronic music and digital mastering standards that reduced dynamic range in the “Loudness War.”
+      </p>
     </div>
   </section>
 
-  <div class="divider fade-element"><span class="diamond">◆</span></div>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered is-multiline">
 
-  <!-- REFERENCES -->
-  <section class="section fade-element">
+      <div class="column is-half">
+        <div class="image-wrapper has-text-centered">
+          <figure>
+            <img src="./static/images/THREE.png" alt="Acousticness vs Loudness">
+            <figcaption class="mb-5">Figure 5. Acousticness and Loudness correlation (R² = 0.29).</figcaption>
+          </figure>
+        </div>
+        <p class="has-text-justified mt-5">
+          Loudness and acousticness show a moderate negative correlation, suggesting the shift toward electronic production reduced acoustic elements while increasing overall volume.
+        </p>
+      </div>
+
+      <div class="column is-half">
+        <div class="image-wrapper has-text-centered">
+          <figure>
+            <img src="./static/images/TWO.png" alt="Instrumentalness vs Loudness">
+            <figcaption class="mb-5">Figure 6. Instrumentalness and Loudness correlation.</figcaption>
+          </figure>
+        </div>
+        <p class="has-text-justified mt-5">
+          Instrumentalness shows almost no correlation with loudness—vocal presence does not drive perceived volume.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"><span class="diamond">◆</span></div>
+
+<section class="section" id="emotions">
+  <div class="container content">
+      <h2 class="title is-3 has-text-centered">Music and Emotions</h2>
+      <p class="has-text-justified">
+        The emotional element is an essential part of music as music, and indeed any art form, is designed to evoke specific emotions in the listener/viewer. This section examines how the emotions contained in music have evolved over time. It also explores the relationship between loudness and emotion, as mentioned in the section above.
+      </p>
+
+      <div class="image-wrapper has-text-centered">
+        <figure>
+          <img src="./static/images/heatmap.png" alt="Emotion heatmap">
+          <figcaption class="mb-5">Figure 7. Heatmap of emotional content over time (lighter = lower, darker red = higher).</figcaption>
+        </figure>
+      </div>
+      <p class="has-text-justified mt-5">
+        This heatmap shows how happiness, sadness, violence, and romantic feelings, measured on a scale of 0 to 1, changed over time. Sadness and romanticism decreased, while violence increased. Happiness grew from 1960 to 1980, but has been declining since the 1990s. The changes in all emotional categories were not significant. Across all decades, happiness is consistently and overwhelmingly higher than the other emotions.
+      </p>
+
+      <div class="image-wrapper has-text-centered" style="margin-top: 3rem;">
+        <figure>
+          <img src="./static/images/happiness trend.png" alt="Happiness by genre">
+          <figcaption class="mb-5">Figure 8. Happiness trend (1950s–2010s) across seven major genres.</figcaption>
+        </figure>
+      </div>
+      <p class="has-text-justified mt-5">
+       This graph shows how happiness changes over time by genre. Happiness is measured on a scale of 0 to 1. Compared to the 1950s, happiness decreased across all genres in the 2010s. Data for reggae and hip-hop first appeared in the 1960s and 1980s, respectively, as these genres were not popular before then. Happiness was highest in reggae and hip-hop, and lowest in jazz and rock.
+      </p>
+    </div>
+  </section>
+
+<div class="divider"><span class="diamond">◆</span></div>
+
+  <section class="section">
+    <h2 class="title is-3 has-text-centered">Loudness vs Happiness & Sadness</h2>
+    <div class="container">
+      <p class="has-text-justified">
+        This project explored the variation in loudness of songs in the section above. What interactions exist between loudness and the two main emotions, happiness and sadness? These two graphs below are KDE (Kernel Density Estimation) graphs comparing loudness and happiness/sadness. The darker the color, the more data is clustered together.
+      </p>
+      
+  <div class="columns is-centered is-multiline">
+
+  <div class="column is-half">
+    <div class="image-wrapper has-text-centered">
+      <figure>
+        <img src="./static/images/LoudnessHappiness.png" alt="Loudness vs Happiness KDE">
+        <figcaption class="mb-5">Figure 9.2. Loudness × Happiness (darker = higher density)</figcaption>
+      </figure>
+    </div>
+    <p class="has-text-justified mt-5">
+      High-density regions are concentrated in the loudness range of approximately 0.6–0.8
+      and happiness range of approximately 0.5–0.8, indicating that loud music is associated
+      with greater feelings of happiness.
+    </p>
+  </div>
+
+  <div class="column is-half">
+    <div class="image-wrapper has-text-centered">
+      <figure>
+        <img src="./static/images/LoudnessSadness.png" alt="Loudness vs Sadness KDE">
+        <figcaption class="mb-5">Figure 9.1. Loudness × Sadness (darker = higher density)</figcaption>
+      </figure>
+    </div>
+    <p class="has-text-justified mt-5">
+      High-density regions are concentrated in the loudness range of approximately 0.6–0.8 
+      and the sadness range of approximately 0–0.2. This suggests that loud music is weakly
+      associated with sadness.
+    </p>
+  </div>
+
+</div> <!-- ★ 여기가 꼭 필요함 -->
+
+</section> <!-- 마지막에 section 닫기 -->
+<div class="divider"><span class="diamond">◆</span></div>
+
+<section class="section" id="conclusion">
+  <div class="container content">
+    <h2 class="title is-3 has-text-centered">Conclusion</h2>
+    <p class="has-text-justified">
+    <p class="has-text-justified">
+      Across the seven decades examined in this study, the evolution of popular music reflects a clear interplay between technological change and cultural expression. The steady increase in loudness, accompanied by a marked reduction in acousticness, aligns with the widespread adoption of digital production, electronic instrumentation, and modern mastering practices. At the same time, emotional patterns within lyrics shifted in meaningful ways: although overall happiness has declined across genres, louder contemporary songs tend to be associated with more positive emotional signals than quieter ones, indicating that affect in popular music is mediated not only by lyrical content but also by sonic design. Collectively, these findings suggest that the sound and emotional character of popular music are shaped by both advances in production technology and broader transformations in listening culture, reinforcing that changes in musical aesthetics emerge from the interaction of artistic intent, audience expectations, and technological possibility.
+    </p>
+  </div>
+
+  <div class="divider"><span class="diamond">◆</span></div>
+
+  <section class="section">
     <div class="container content">
       <h2 class="title is-3 has-text-centered">References & Data Sources</h2>
-
       <ol class="has-text-justified">
-        <li>Shahane, S. (2021). Music dataset… Kaggle.</li>
-        <li>Serra, J., et al. (2012). Measuring the evolution… Scientific Reports.</li>
+        <li>Shahane, S. (2021). Music dataset (1950–2019) [Data set]. Kaggle. <a href="https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019">Link</a></li>
+        <li>Serra, J., et al. (2012). Measuring the evolution of contemporary western popular music. <em>Scientific Reports</em>, 2(1), 521. <a href="https://doi.org/10.1038/srep00521">DOI</a></li>
       </ol>
-
     </div>
   </section>
 
-  <footer class="footer has-text-centered fade-element">
+  <footer class="footer has-text-centered">
     <p>
-      Coursework for CDS 301/501: Scientific Information and Data Visualization (Fall 2025)<br>
-      George Mason University Korea
+      Coursework for CDS 301 / 501: Scientific Information and Data Visualization (Fall 2025)<br>
+      George Mason University Korea<br><br>
     </p>
   </footer>
+ <script>
+  /* -----------------------------
+     Fade-in Animation (기존 코드)
+  ----------------------------- */
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
 
-  <!-- Fade-in Observer -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          entry.target.classList.remove('hidden');
-        } else {
-          entry.target.classList.add('hidden');
-          entry.target.classList.remove('visible');
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const fadeElements = document.querySelectorAll(
-      'section.section, .image-wrapper, .divider, figure'
-    );
-
-    fadeElements.forEach(el => {
-      el.classList.add('fade-element', 'hidden');
-      observer.observe(el);
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.classList.remove('hidden');
+      } else {
+        entry.target.classList.add('hidden');
+        entry.target.classList.remove('visible');
+      }
     });
+  };
 
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  const fadeElements = document.querySelectorAll(
+    'section.section, .image-wrapper, .divider, figure'
+  );
+
+  fadeElements.forEach(el => {
+    el.classList.add('fade-element', 'hidden');
+    observer.observe(el);
   });
 </script>
 
-
-<!-- Mobile Image Click-to-Expand -->
 <script>
+  /* --------------------------------------------
+     Mobile Image Click-to-Expand (신규 기능)
+  -------------------------------------------- */
   document.addEventListener("DOMContentLoaded", function () {
 
     const images = document.querySelectorAll("figure img");
@@ -558,10 +617,10 @@ figure img {
     images.forEach(img => {
       img.addEventListener("click", function () {
 
-        // 데스크탑(hover 가능 장치)에서는 클릭 확대 금지
+        // 데스크탑에서는 클릭 확대 금지 (hover 있는 디바이스)
         if (window.matchMedia("(hover: hover)").matches) return;
 
-        // 열려 있던 이미지 닫기
+        // 이미 확대된 이미지 → 클릭하면 닫기
         if (img.classList.contains("img-expanded")) {
           img.classList.remove("img-expanded");
           if (overlay) overlay.remove();
@@ -570,7 +629,7 @@ figure img {
           return;
         }
 
-        // 다른 이미지 열려 있으면 닫기
+        // 다른 이미지가 열려 있으면 닫아주기
         if (expandedImg) {
           expandedImg.classList.remove("img-expanded");
           if (overlay) overlay.remove();
@@ -585,7 +644,7 @@ figure img {
         img.classList.add("img-expanded");
         expandedImg = img;
 
-        // 배경 클릭 시 닫기
+        // 배경 터치하면 닫히게
         overlay.addEventListener("click", () => {
           img.classList.remove("img-expanded");
           overlay.remove();
@@ -598,6 +657,5 @@ figure img {
 
   });
 </script>
-
 </body>
 </html>
