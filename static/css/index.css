@@ -332,3 +332,38 @@ footer.footer p {
   text-align: center !important;
   margin: 0 auto;
 }
+
+/* CONTACT 카드 텍스트 센터링 */
+.contact-card h3,
+.contact-card p,
+.contact-card a {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* 이름 강조 */
+.contact-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+
+/* 이메일이 길어도 박스 안에서 자동 줄바꿈 */
+.contact-email a {
+  font-size: 1.1rem;
+  word-break: break-all;   /* ← 핵심 */
+  white-space: normal;
+}
+
+/* 링크 스타일 */
+.contact-link a {
+  font-size: 1.1rem;
+  margin-top: 0.3rem;
+}
+
+/* 카드 전체 안정적 크기 */
+.contact-card {
+  padding: 1.8rem 2rem;
+  border-radius: 12px;
+}
