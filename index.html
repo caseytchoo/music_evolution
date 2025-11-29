@@ -506,30 +506,39 @@ html {
         This project explored the variation in loudness of songs in the section above. What interactions exist between loudness and the two main emotions, happiness and sadness? These two graphs below are KDE (Kernel Density Estimation) graphs comparing loudness and happiness/sadness. The darker the color, the more data is clustered together.
       </p>
       
-      <div class="columns is-centered">
-        <div class="column is-half">
-          <div class="image-wrapper has-text-centered">
-            <figure>
-              <img src="./static/images/LoudnessHappiness.png" alt="Loudness vs Happiness KDE">
-             <figcaption class="mb-5">Figure 9.2. Loudness × Happiness (darker = higher density)</figcaption>
-            </figure>
-          </div>
-          <p class="has-text-justified mt-5">
-            High-density regions are concentrated in the loudness range of approximately 0.6–0.8 and happiness range of approximately 0.5–0.8, indicating that loud music is associated with greater feelings of happiness.
-          </p>
-        </div>
-        <div class="column is-half">
-          <div class="image-wrapper has-text-centered">
-            <figure>
-              <img src="./static/images/LoudnessSadness.png" alt="Loudness vs Sadness KDE">
-              <figcaption class="mb-5">Figure 9.1. Loudness × Sadness (darker = higher density)</figcaption>
-            </figure>
-          </div>
-          <p class="has-text-justified mt-5">
-            High-density regions are concentrated in the loudness range of approximately 0.6–0.8 and the sadness range of approximately 0–0.2. This suggests that loud music is weakly associated with sadness.
-          </p>
-        </div>
-  </section>
+  <div class="columns is-centered is-multiline">
+
+  <div class="column is-half">
+    <div class="image-wrapper has-text-centered">
+      <figure>
+        <img src="./static/images/LoudnessHappiness.png" alt="Loudness vs Happiness KDE">
+        <figcaption class="mb-5">Figure 9.2. Loudness × Happiness (darker = higher density)</figcaption>
+      </figure>
+    </div>
+    <p class="has-text-justified mt-5">
+      High-density regions are concentrated in the loudness range of approximately 0.6–0.8
+      and happiness range of approximately 0.5–0.8, indicating that loud music is associated
+      with greater feelings of happiness.
+    </p>
+  </div>
+
+  <div class="column is-half">
+    <div class="image-wrapper has-text-centered">
+      <figure>
+        <img src="./static/images/LoudnessSadness.png" alt="Loudness vs Sadness KDE">
+        <figcaption class="mb-5">Figure 9.1. Loudness × Sadness (darker = higher density)</figcaption>
+      </figure>
+    </div>
+    <p class="has-text-justified mt-5">
+      High-density regions are concentrated in the loudness range of approximately 0.6–0.8 
+      and the sadness range of approximately 0–0.2. This suggests that loud music is weakly
+      associated with sadness.
+    </p>
+  </div>
+
+</div> <!-- ★ 여기가 꼭 필요함 -->
+
+</section> <!-- 마지막에 section 닫기 -->
   <div class="divider"><span class="diamond">◆</span></div>
 
 
