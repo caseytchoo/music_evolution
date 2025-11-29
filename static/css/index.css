@@ -306,3 +306,11 @@ a:hover {
 .contact-card a:hover {
   color: #cce6ff;
 }
+
+footer.footer p {
+  text-align: center !important;
+}
+
+.contact-card {
+  text-align: center;
+}
