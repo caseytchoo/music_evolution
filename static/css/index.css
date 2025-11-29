@@ -256,3 +256,17 @@ a:hover {
   box-shadow: 0 20px 60px rgba(0,0,0,0.8) !important;
 }
 
+
+/* 맨 위 제목 강제 중앙정렬 */
+.section:first-of-type h1.title {
+  text-align: center !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+/* 저자/학교 줄도 가운데 정렬 (글로벌 p-justify 덮기) */
+.section:first-of-type p {
+  text-align: center !important;
+}
