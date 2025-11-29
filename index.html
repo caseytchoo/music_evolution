@@ -31,7 +31,7 @@
       font-style: italic;
       margin-top: 12.8px !important;
     }
-    .title { color: #ffffff !important; text-shadow: 0 0 12px rgba(255,255,255,0.15); }
+    .title { color: #ffffff !important; text-shadow: 0 0 12px rgba(255, 255, 255, 0.7); }
     h1.title { font-size: 3.04rem; margin-bottom: 0.4rem; }
     h2.title.is-3 { font-size: 1.92rem; margin-bottom: 1.2rem; }
 
@@ -50,7 +50,7 @@
     .divider:before { left: 0; }
     .divider:after { right: 0; background: linear-gradient(to left, transparent, #6d89ff80); }
 
-    /* Images: 60% size + glass effect */
+   
     figure img {
       border-radius: 12.8px;
       padding: 8px;
@@ -62,7 +62,7 @@
       height: auto !important;
       max-width: none !important;
     }
-    figure img:hover { transform: scale(1.15); }
+    figure img:hover { transform: scale(1.4); }
 
     /* NEW: Center caption & following paragraph exactly under the image */
     .image-wrapper {
@@ -106,16 +106,17 @@
     }
     .subtitle.is-4 { font-size: 1.28rem !important; }
     .is-size-5 { font-size: 1.2rem !important; }
+
+    
   </style>
 </head>
 <body>
   <section class="section">
     <div class="container has-text-centered">
       <h1 class="title">How Music’s Sound and Emotion Have Changed Over Time</h1>
-      <p class="subtitle is-4">Evolution of Loudness & Emotions (1950–2019)</p>
       <p class="is-size-5" style="margin-top: 1.2rem; font-size: 1.2rem;">
-        Alexander Queguiner, Casey Tchoo, and Minjun Park<sup>1</sup><br>
-        <sup>1</sup>George Mason University Korea
+        Alexander Queguiner, Casey Tchoo, and Minjun Park<br>
+        George Mason University Korea
       </p>
     </div>
   </section>
@@ -128,30 +129,187 @@
     <div class="content">
     <h2 class="title is-3 has-text-centered">Abstract</h2>
     <p class="has-text-justified">
-      This project explores how the sound, emotional tone, and cultural meaning of popular music have changed from the 1950s to 2019 using a dataset from Kaggle. We analyze long-term trends in genre dominance, acoustic features, loudness, and lyrical emotions to understand how technology and culture continue to shape musical expression. Our findings show that music has become significantly louder, less acoustic, and more diverse across genres, while emotional signals such as happiness have gradually declined. By connecting sonic, cultural, and emotional patterns, this work highlights the evolving nature of popular music over seven decades.
-    </p>
+       This project investigates how the sonic qualities, emotional tone, and cultural meaning of popular music have evolved from the 1950s to 2019 using a comprehensive Kaggle dataset of audio and lyrical features. By examining long-term trends in genre dominance, acousticness, loudness, instrumental characteristics, and emotion-related variables, we aim to understand how shifts in technology and cultural taste have shaped musical expression over the past seven decades. Our analysis reveals several consistent patterns: music has grown significantly louder across time, largely coinciding with the rise of digital production and mastering techniques; acousticness has steadily decreased, indicating a move toward more electronic sound design; and the distribution of genres has diversified, with the historical dominance of Rock and Pop giving way to increased representation of Hip Hop, Electronic, and other contemporary styles. In parallel, lyrical emotional signals exhibit notable fluctuations across decades, with happiness gradually declining while darker emotional cues show slight increases. By connecting sonic, cultural, and emotional dimensions, this study offers insight into the evolving landscape of modern music and highlights the extent to which technological innovation and cultural change continue to reshape the affective identity of popular sound.
+  </div>
   </div>
 </section>
-<!-- TABLE OF CONTENTS -->
+<!-- TABLE OF CONTENTS --><section class="section">
 <section class="section">
   <div class="container has-text-centered">
-    <h2 class="title is-3" style="margin-bottom: 2rem;">Contents</h2>
-    <div class="buttons is-centered" style="flex-wrap: wrap; gap: 1rem;">
-      <a href="#genre-trends" class="button is-medium is-link" style="background: rgba(109, 137, 255, 0.25); border: none;">
-        1. Genre Trends and Cultural Signals
-      </a>
-      <a href="#loudness" class="button is-medium is-link" style="background: rgba(109, 137, 255, 0.25); border: none;">
-        2. Music's Loudness Over The Years
-      </a>
-      <a href="#emotions" class="button is-medium is-link" style="background: rgba(109, 137, 255, 0.25); border: none;">
-        3. Music and Emotions
-      </a>
-      <a href="#conclusion" class="button is-medium is-link" style="background: rgba(109, 137, 255, 0.25); border: none;">
-        Conclusion
-      </a>
+    <h2 class="title is-3" style="margin-bottom: 2.5rem;">Contents</h2>
+    
+    <div style="max-width: 560px; margin: 0 auto;">
+      <div class="toc-list">
+        <a href="#genre-trends" class="toc-item">
+          <span class="toc-number">1.</span> Genre Trends and Cultural Signals
+        </a>
+        <a href="#loudness" class="toc-item">
+          <span class="toc-number">2.</span> Music's Loudness Over The Years
+        </a>
+        <a href="#emotions" class="toc-item">
+          <span class="toc-number">3.</span> Music and Emotions
+        </a>
+        <a href="#conclusion" class="toc-item">
+          <span class="toc-number">4.</span> Conclusion
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .toc-item {
+    position: relative;
+    display: block;
+    padding: 1.2rem 1.8rem;
+    background: rgba(22, 32, 59, 0.65);
+    border: 1.5px solid rgba(109, 137, 255, 0.25);
+    border-radius: 16px;
+    color: #e8f0ff !important;
+    font-size: 1.18rem;
+    text-align: left;
+    overflow: hidden;
+    transition: all 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 20px rgba(109, 137, 255, 0.08);
+  }
+
+  /* Subtle inner glow background on hover */
+  .toc-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(109, 137, 255, 0.15) 0%, 
+      rgba(128, 191, 255, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    border-radius: 16px;
+    pointer-events: none;
+  }
+
+  .toc-item:hover {
+    transform: translateY(-6px) scale(1.025);
+    border-color: #80bfff;
+    background: rgba(30, 42, 77, 0.85);
+    color: #ffffff !important;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(109, 137, 255, 0.4),
+      inset 0 0 20px rgba(128, 191, 255, 0.15);
+    z-index: 10;
+  }
+
+  .toc-item:hover::before {
+    opacity: 1;
+  }
+
+  .toc-item:hover .toc-number {
+    color: #c0d8ff;
+    text-shadow: 0 0 12px rgba(128, 191, 255, 0.8);
+  }
+
+  .toc-number {
+    color: #80bfff;
+    font-weight: bold;
+    margin-right: 1rem;
+    opacity: 0.95;
+    transition: all 0.4s ease;
+  }
+
+  .toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .toc-item {
+    display: block;
+    padding: 1rem 1.6rem;
+    background: #16203b;
+    border: 1.5px solid rgba(109, 137, 255, 0.3);
+    border-radius: 14px;                 /* fully rounded corners */
+    color: #e0e7ff !important;
+    font-size: 1.15rem;
+    text-align: left;
+    transition: all 0.38s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+  }
+  .toc-item:hover {
+    background: rgba(30, 42, 77, 0.7);
+    border-color: #80bfff;
+    transform: translateY(-4px);
+    color: #ffffff !important;
+    box-shadow: 0 12px 30px rgba(109, 137, 255, 0.25);
+    text-shadow: 0 0 10px rgba(128, 191, 255, 0.5);
+  }
+  .toc-number {
+    color: #80bfff;
+    font-weight: bold;
+    margin-right: 0.9rem;
+    opacity: 0.95;
+  }
+html {
+  scroll-behavior: smooth;
+}
+<style>
+  /* Make side-by-side images bigger and properly centered */
+  .columns.is-multiline .column.is-half {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* For the two-column sections only: make images use almost the full column width */
+  .columns.is-multiline .image-wrapper figure img {
+    width: 75% !important;        /* was 60% → now much larger */
+    max-width: 560px !important;  /* optional: prevent them from getting huge on very wide screens */
+  }
+
+  /* Keep captions and the paragraph after the image the same width as the image */
+  .columns.is-multiline .image-wrapper figcaption,
+  .columns.is-multiline .image-wrapper + p {
+    width: 75% !important;
+    max-width: 560px !important;
+    text-align: center !important;
+  }
+/* Base styles for fade animation */
+.fade-element {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.25, 1),
+              transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: opacity, transform;
+}
+
+.fade-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-element.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Slightly different timing for images so they feel staggered */
+.image-wrapper.fade-element {
+  transition-delay: 0.15s;
+}
+
+/* Optional: make dividers fade in more dramatically */
+.divider.fade-element {
+  transition-duration: 1.2s;
+}
+</style>
 <div class="divider"><span class="diamond">◆</span></div>
   
  <section class="section">
@@ -159,24 +317,22 @@
   <div class="container">
     <div class="content">
       <h2 class="title is-3 has-text-centered">Genre Trends and Cultural Signals</h2>
-      <p class="has-text-justified">
-        As cultural tastes shift and production technology evolves, music genres change with them. We examined how genre dominance moved across decades, what these shifts suggest about listening habits, and how musical traits like acousticness and lyrical tone vary between genres.
-      </p>
-      
+       <p class="has-text-justified">
+        As cultural tastes shift and production technology evolves, music genres change in parallel. Throughout this project, we examined how patterns of genre dominance moved across decades and what these transitions reveal about listener preferences, cultural trends, and the broader music industry. Our analysis highlights not only which genres rose or declined in popularity over time, but also how these dynamics coincide with meaningful changes in musical aesthetics. By comparing features such as acousticness, loudness, and lyrical emotional tone across genres, we observed that each genre carries distinct sonic and affective signatures that contribute to its cultural identity. Taken together, these findings suggest that the evolution of genre is not simply a reflection of changing fashion, but a response to deeper interactions between technology, consumer expectations, and the expressive goals of artists.
       <div class="image-wrapper has-text-centered" style="margin-bottom: 2rem;">
   <figure>
-    <img src="web_legend.png" alt="Genre Legend">
-    <figcaption>Legend. Color guide for the seven major music genres used throughout this section.</figcaption>
+    <img src="./static/images/web_legend.png" alt="Genre Legend">
+    <figcaption>Legend. Color guide for the seven major music genres used throughout this section.</figcaption> 
   </figure>
 </div>
 
       <div class="image-wrapper has-text-centered">
         <figure>
-          <img src="web_stackedbar.png">
-          <figcaption>Figure 1. Stacked bar plot showing how genre shares change across decades.</figcaption>
+          <img src="./static/images/web_stackedbar.png" alt="Stacked Bar">
+          <figcaption class="mb-5">Figure 1. Stacked bar plot showing how genre shares change across decades.</figcaption>
         </figure>
       </div>
-      <p class="has-text-justified">
+      <p class="has-text-justified mt-5">
        This plot shows how the popularity of major genres shifts across decades. Rock and Pop are dominant in the earlier decades, but Hip hop and Electronic music rise significantly in later years. Reggae, Country, and Blues stay smaller but remain consistently present. The chart makes it clear that the music landscape becomes more diverse over time, with newer genres taking a larger share. These changes reflect cultural shifts, new technology, and evolving listener preferences.
       </p>
     </div>
@@ -188,22 +344,22 @@
         <div class="column is-half">
           <div class="image-wrapper has-text-centered">
             <figure>
-              <img src="web_boxplot.png">
-              <figcaption>Figure 2. Boxplot showing the distribution of acousticness across music genres.</figcaption>
+              <img src="./static/images/web_boxplot.png" alt="Box Plot">
+              <figcaption class="mb-5">Figure 2. Boxplot showing the distribution of acousticness across music genres.</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified">
+          <p class="has-text-justified mt-5">
             This chart compares how “acoustic” each genre sounds. Country, Blues, and Jazz show higher acousticness overall, meaning they rely more on natural instruments. Hip hop and Pop are less acoustic, which makes sense because they use more digital production. Rock sits in the middle with both electric and acoustic elements. The spread inside each box shows that some genres are more flexible in style, while others follow a more consistent sound identity.
           </p>
         </div>
         <div class="column is-half">
           <div class="image-wrapper has-text-centered">
             <figure>
-              <img src="web_horizontalbar.png">
-              <figcaption>Figure 3. Bar plot showing average explicit-content scores across genres.</figcaption>
+              <img src="./static/images/web_horizontalbar.png" alt="Horizonal Bar Plot">
+              <figcaption class="mb-5">Figure 3. Bar plot showing average explicit-content scores across genres.</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified">
+          <p class="has-text-justified mt-5">
            This visualization shows how often different genres use explicit or offensive language. Hip hop has the highest average obscene score, followed by Rock and Pop at lower levels. Jazz, Country, Reggae, and Blues tend to use little to no explicit language. These differences highlight how certain genres focus more on expressive, raw, or confrontational lyrics, while others keep a cleaner or more traditional lyrical style.
           </p>
         </div>
@@ -225,11 +381,11 @@
 
       <div class="image-wrapper has-text-centered">
         <figure>
-          <img src="ONE.png" alt="Stacked bar plot of loudness over years">
-          <figcaption>Figure 4. Stacked bar plot showing music loudness trends over the years.</figcaption>
+          <img src="./static/images/ONE.png" alt="Stacked bar plot of loudness over years">
+          <figcaption class="mb-5">Figure 4. Stacked bar plot showing music loudness trends over the years.</figcaption>
         </figure>
       </div>
-      <p class="has-text-justified">
+      <p class="has-text-justified mt-5">
         Music loudness rapidly increased starting in the 1990s—likely due to the rise of electronic music and digital mastering standards that reduced dynamic range in the “Loudness War.”
       </p>
     </div>
@@ -241,22 +397,22 @@
         <div class="column is-half">
           <div class="image-wrapper has-text-centered">
             <figure>
-              <img src="THREE.png" alt="Acousticness vs Loudness">
-              <figcaption>Figure 5. Acousticness and Loudness correlation (R² = 0.29).</figcaption>
+              <img src="./static/images/THREE.png" alt="Acousticness vs Loudness">
+              <figcaption class="mb-5"n>Figure 5. Acousticness and Loudness correlation (R² = 0.29).</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified">
+          <p class="has-text-justified mt-5">
             Loudness and acousticness show a moderate negative correlation, suggesting the shift toward electronic production reduced acoustic elements while increasing overall volume.
           </p>
         </div>
         <div class="column is-half">
           <div class="image-wrapper has-text-centered">
             <figure>
-              <img src="TWO.png" alt="Instrumentalness vs Loudness">
-              <figcaption>Figure 6. Instrumentalness and Loudness correlation.</figcaption>
+              <img src="./static/images/TWO.png" alt="Instrumentalness vs Loudness">
+              <figcaption class="mb-5">Figure 6. Instrumentalness and Loudness correlation.</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified">
+          <p class="has-text-justified mt-5">
             Instrumentalness shows almost no correlation with loudness—vocal presence does not drive perceived volume.
           </p>
         </div>
@@ -275,21 +431,21 @@
 
       <div class="image-wrapper has-text-centered">
         <figure>
-          <img src="heatmap.png" alt="Emotion heatmap">
-          <figcaption>Figure 7. Heatmap of emotional content over time (lighter = lower, darker red = higher).</figcaption>
+          <img src="./static/images/heatmap.png" alt="Emotion heatmap">
+          <figcaption class="mb-5">Figure 7. Heatmap of emotional content over time (lighter = lower, darker red = higher).</figcaption>
         </figure>
       </div>
-      <p class="has-text-justified">
+      <p class="has-text-justified mt-5">
         This heatmap shows how happiness, sadness, violence, and romantic feelings, measured on a scale of 0 to 1, changed over time. Sadness and romanticism decreased, while violence increased. Happiness grew from 1960 to 1980, but has been declining since the 1990s. The changes in all emotional categories were not significant. Across all decades, happiness is consistently and overwhelmingly higher than the other emotions.
       </p>
 
       <div class="image-wrapper has-text-centered" style="margin-top: 3rem;">
         <figure>
-          <img src="happiness trend.png" alt="Happiness by genre">
-          <figcaption>Figure 8. Happiness trend (1950s–2010s) across seven major genres.</figcaption>
+          <img src="./static/images/happiness trend.png" alt="Happiness by genre">
+          <figcaption class="mb-5">Figure 8. Happiness trend (1950s–2010s) across seven major genres.</figcaption>
         </figure>
       </div>
-      <p class="has-text-justified">
+      <p class="has-text-justified mt-5">
        This graph shows how happiness changes over time by genre. Happiness is measured on a scale of 0 to 1. Compared to the 1950s, happiness decreased across all genres in the 2010s. Data for reggae and hip-hop first appeared in the 1960s and 1980s, respectively, as these genres were not popular before then. Happiness was highest in reggae and hip-hop, and lowest in jazz and rock.
       </p>
     </div>
@@ -298,39 +454,36 @@
   <div class="divider"><span class="diamond">◆</span></div>
 
   <section class="section">
+    <h2 class="title is-3 has-text-centered">Loudness vs Happiness & Sadness</h2>
     <div class="container">
       <p class="has-text-justified">
         This project explored the variation in loudness of songs in the section above. What interactions exist between loudness and the two main emotions, happiness and sadness? These two graphs below are KDE (Kernel Density Estimation) graphs comparing loudness and happiness/sadness. The darker the color, the more data is clustered together.
       </p>
-      <h2 class="title is-3 has-text-centered">Loudness vs Happiness & Sadness</h2>
+      
       <div class="columns is-centered">
         <div class="column is-half">
           <div class="image-wrapper has-text-centered">
             <figure>
-              <img src="LoudnessHappiness.png" alt="Loudness vs Happiness KDE">
-              <figcaption>Figure 9.2. Loudness × Happiness (darker = higher density)</figcaption>
+              <img src="./static/images/LoudnessHappiness.png" alt="Loudness vs Happiness KDE">
+             <figcaption class="mb-5">Figure 9.2. Loudness × Happiness (darker = higher density)</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified">
+          <p class="has-text-justified mt-5">
             High-density regions are concentrated in the loudness range of approximately 0.6–0.8 and happiness range of approximately 0.5–0.8, indicating that loud music is associated with greater feelings of happiness.
           </p>
         </div>
         <div class="column is-half">
           <div class="image-wrapper has-text-centered">
             <figure>
-              <img src="LoudnessSadness.png" alt="Loudness vs Sadness KDE">
-              <figcaption>Figure 9.1. Loudness × Sadness (darker = higher density)</figcaption>
+              <img src="./static/images/LoudnessSadness.png" alt="Loudness vs Sadness KDE">
+              <figcaption class="mb-5">Figure 9.1. Loudness × Sadness (darker = higher density)</figcaption>
             </figure>
           </div>
-          <p class="has-text-justified">
+          <p class="has-text-justified mt-5">
             High-density regions are concentrated in the loudness range of approximately 0.6–0.8 and the sadness range of approximately 0–0.2. This suggests that loud music is weakly associated with sadness.
-
           </p>
         </div>
-      </div>
-    </div>
   </section>
-
   <div class="divider"><span class="diamond">◆</span></div>
 
 
@@ -338,7 +491,8 @@
   <div class="container content">
     <h2 class="title is-3 has-text-centered">Conclusion</h2>
     <p class="has-text-justified">
-      Over the past seven decades, music has become significantly louder while happiness has gradually declined across all genres. The rise of electronic production appears to have simultaneously increased loudness and reduced acousticness. Louder songs today are more likely to evoke happiness than sadness, reflecting broader cultural and technological shifts in music production and consumption.
+    <p class="has-text-justified">
+      Across the seven decades examined in this study, the evolution of popular music reflects a clear interplay between technological change and cultural expression. The steady increase in loudness, accompanied by a marked reduction in acousticness, aligns with the widespread adoption of digital production, electronic instrumentation, and modern mastering practices. At the same time, emotional patterns within lyrics shifted in meaningful ways: although overall happiness has declined across genres, louder contemporary songs tend to be associated with more positive emotional signals than quieter ones, indicating that affect in popular music is mediated not only by lyrical content but also by sonic design. Collectively, these findings suggest that the sound and emotional character of popular music are shaped by both advances in production technology and broader transformations in listening culture, reinforcing that changes in musical aesthetics emerge from the interaction of artistic intent, audience expectations, and technological possibility.
     </p>
   </div>
 
@@ -360,5 +514,38 @@
       George Mason University Korea<br><br>
     </p>
   </footer>
+  <script>
+  // Options for the observer (adjust as you like)
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15  // Trigger when 15% of the element is visible
+  };
+
+  // Callback that adds/removes classes
+  const observerCallback = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        entry.target.classList.remove('hidden');
+      } else {
+        // Optional: fade out when scrolling back up
+        entry.target.classList.add('hidden');
+        entry.target.classList.remove('visible');
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  // Select everything you want to animate
+  const fadeElements = document.querySelectorAll('section.section, .image-wrapper, .divider, figure');
+
+  fadeElements.forEach(el => {
+    // Start hidden
+    el.classList.add('fade-element', 'hidden');
+    observer.observe(el);
+  });
+</script>
 </body>
 </html>
