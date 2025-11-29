@@ -206,3 +206,19 @@ figcaption {
     transform: none !important;
   }
 }
+
+
+/* ------------------------------------------- */
+/* 2-Column Layout (is-half) Hover Enlargement */
+/* ------------------------------------------- */
+
+.columns.is-multiline .column.is-half figure img:hover {
+  transform: scale(1.25) !important;   /* 기본: 1.4 → 조금 줄여서 안정적으로 */
+  z-index: 50 !important;
+}
+
+/* Hover 시 주변 요소 가리지 않게 wrapper도 z-index 상승 */
+.columns.is-multiline .column.is-half .image-wrapper:hover {
+  z-index: 50 !important;
+  position: relative;
+}
