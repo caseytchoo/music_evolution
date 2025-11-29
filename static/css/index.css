@@ -228,3 +228,26 @@ figcaption {
     max-width: 100% !important;
   }
 }
+
+@media screen and (max-width: 768px) {
+  p, li {
+    line-height: 1.35 !important;   /* 훨씬 자연스러워짐 */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .image-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  figure {
+    width: 100% !important;
+  }
+
+  figure img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
