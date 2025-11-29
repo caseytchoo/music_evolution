@@ -309,6 +309,25 @@ html {
 .divider.fade-element {
   transition-duration: 1.2s;
 }
+
+/* 1) 두 이미지 사이 간격 줄이기 (데스크탑용) */
+.columns.is-multiline .column.is-half {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+/* 2) Hover 확대 시 잘리던 문제 해결 */
+.columns.is-multiline .column.is-half .image-wrapper {
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 2;
+}
+
+/* 3) Hover 시 실제로 더 크게 보이도록 */
+.columns.is-multiline .column.is-half figure img:hover {
+  transform: scale(1.45) !important;  
+  z-index: 30 !important;
+}
 </style>
 <div class="divider"><span class="diamond">◆</span></div>
   
